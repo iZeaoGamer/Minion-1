@@ -67,19 +67,19 @@ class Main extends PluginBase{
 
     public function giveItem(Player $sender): void{
 	    $sender->getInventory()->addItem($this->getItem($sender));
-	    $sender->sendMessage(C::GREEN . "You received a minion spawner.");
+	    $sender->sendMessage(C::DARK_PURPLE . "You've received a minion successfully.");
     }
 
     public function getItem(Player $sender, int $level = 1, string $xyz = "n"): Item{
         $item = Item::get(Item::NETHER_STAR);
-        $item->setCustomName(C::BOLD . C::AQUA . "* " . C::GOLD . "Minion " . C::AQUA . "Miner" . " *");
+        $item->setCustomName(C::BOLD . C::AQUA . "* " . C::DARK_PURPLE . "Minion " . C::AQUA . "Miner" . " *");
         $item->setLore(
             [
                 " ",
-                C::GRAY . "* " . C::YELLOW . "Tap the ground to place me",
-                C::GRAY . "* " . C::YELLOW . "I will mine block infront me",
-                C::GRAY . "* " . C::YELLOW . "Please place chest behind me",
-                C::GRAY . "* " . C::YELLOW . "These steps help me get started"
+                C::AQUA . "* " . C::GRAY . "Tap the ground to place this minion",
+                C::AQUA . "* " . C::GRAY . "Once placed, the minion can mine for you.",
+                C::AQUA . "* " . C::GRAY . "Please place the chest to receive the mined loot.",
+                C::AQUA . "* " . C::GRAY . "These steps are to help you get started with your minion."
             ]
         );
         $nbt = $item->getNamedTag();
